@@ -1,0 +1,17 @@
+[Unit]
+Description=Raspberry Ninja Web Control system
+After=network-online.target
+Requires=network-online.target
+
+[Service]
+User=root
+Group=root
+Type=idle
+ExecStartPre=/bin/sleep 5
+Restart=always
+RestartSec=5s
+#WorkingDirectory=/home/vdo/raspi.control
+ExecStart=/usr/bin/nodejs /home/vdo/raspi_control/servercontrol.js
+
+[Install]
+WantedBy=multi-user.target
